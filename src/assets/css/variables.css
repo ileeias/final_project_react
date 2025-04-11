@@ -1,0 +1,20 @@
+:root {
+    --bg-color: #E5E5E5;
+    --secondary-color: #FFFFFF;
+    --border: #BFBFBF;
+    --border-top: #e8e8e8;
+    --button-color: #F5F5F5;
+    --secondary-color-hover: #FFFFFF;
+    --text: #595959;
+    --text-info: #8c8c8c;
+    --light: #fff;
+  
+    --green: #1ed760;
+    --blue: #0050B3;
+  
+    --white: #fff;
+    --dark-text: #262626;
+
+    --shadow: 0px 0px 30px 1px rgba(34, 60, 80, 0.2);
+  }
+  

@@ -1,0 +1,13 @@
+.nav {
+    padding: 12px 0;
+    background: rebeccapurple;
+    display: flex;
+    justify-content: center;
+    gap: 48px;
+}
+
+.link {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+}

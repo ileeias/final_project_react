@@ -11,6 +11,7 @@ import Header from './components/Header';
 import { useState } from 'react';
 import Registration from './components/Registration';
 import Login from './components/Login';
+import Photo from './pages/Photo';
 
 function App() {
   const [modal, setModal] = useState(null);
@@ -42,6 +43,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/photo" element={<Photo />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>

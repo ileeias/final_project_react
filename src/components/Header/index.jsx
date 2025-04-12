@@ -9,13 +9,21 @@ export default function Header({ changeModalRegistration, changeModalLogin }) {
     <div>
       {/* Это навигация до входа и аутентификации пользователя */}
       <nav className={styles.nav}>
-        <Link className={styles.link}>Home Page</Link>
-        <Link className={styles.link} onClick={changeModalRegistration}>Registration</Link>
-        <Link className={styles.link} onClick={changeModalLogin}>Log In</Link>
+        <Link to="/" className={styles.link}>
+          Home Page
+        </Link>
+        <Link className={styles.link} onClick={changeModalRegistration}>
+          Registration
+        </Link>
+        <Link className={styles.link} onClick={changeModalLogin}>
+          Log In
+        </Link>
       </nav>
       {/* Это навигация после авторизации пользователя и которая доступна ему */}
       <nav className={styles.nav}>
-        <Link className={styles.link}>Photo</Link>
+        <Link to="/photo" className={styles.link}>
+          Photo
+        </Link>
         <Link className={styles.link}>Video</Link>
         <Link className={styles.link}>Categories</Link>
         <Link className={styles.link}>Albums</Link>

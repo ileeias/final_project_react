@@ -8,13 +8,23 @@ import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
 import './assets/css/style.css';
 import HomePage from './pages/HomePage';
 import Header from './components/Header';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Registration from './components/Registration';
 import Login from './components/Login';
 import Photo from './pages/Photo';
+import CreatePage from './pages/CreatePage';
 
 function App() {
   const [modal, setModal] = useState(null);
+  const [authenticated, setAuthenticated] = useState(localStorage.getItem('saveSession'))
+
+  // Проверка авторизации
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      setAuthenticated(true)
+      localStorage.setItem("saveSession", authenticated)
+    } else {setAuthenticated(false)}
+  })
 
   //Управление модальным окном
   const changeModalRegistration = () => {
@@ -36,6 +46,7 @@ function App() {
       <Header
         changeModalLogin={changeModalLogin}
         changeModalRegistration={changeModalRegistration}
+        authenticated={authenticated}
       />
 
       {/* Модальное окно */}
@@ -44,6 +55,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/photo" element={<Photo />} />
+        <Route path="/create" element={<CreatePage />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </>

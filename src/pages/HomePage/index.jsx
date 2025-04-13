@@ -1,3 +1,4 @@
+import styles from "./HomePage.module.css";
 import { useEffect, useState } from "react"
 import { axiosInstance} from "../../services/axios"
 

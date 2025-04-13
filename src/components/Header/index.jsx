@@ -2,6 +2,7 @@
 
 import styles from './Header.module.css';
 import { Link } from 'react-router-dom';
+import logoimg from '../../assets/images/picture.png'
 
 export default function Header({
   changeModalRegistration,

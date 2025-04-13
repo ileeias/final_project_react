@@ -1,13 +1,38 @@
 .nav {
-    padding: 12px 0;
-    background: rebeccapurple;
     display: flex;
     justify-content: center;
     gap: 48px;
+    font-size: 14px;
+    font-weight: 800;
 }
 
 .link {
     color: white;
-    font-weight: 500;
+    font-weight: 400;
     text-decoration: none;
+}
+
+.logo {
+    font-weight: 500;
+    color: white;
+    text-decoration: none;
+}
+
+.logo_img {
+    width: 28px;
+    height: 28px;
+}
+
+.header_container {
+    display: flex;
+    padding: 10px 50px;
+    background: rebeccapurple;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header_author {
+    display: flex;
+    gap: 40px;
+    font-size: 14px;
 }

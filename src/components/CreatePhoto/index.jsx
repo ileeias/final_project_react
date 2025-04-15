@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import React from 'react';
 import { axiosInstance } from '../../services/axios';
+import '../../styles/components/createphoto.scss'
 
 const CreatePhoto = () => {
   const { register, handleSubmit, setError } = useForm();

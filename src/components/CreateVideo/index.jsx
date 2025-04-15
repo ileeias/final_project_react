@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import React, { useState } from 'react';
 import { axiosInstance } from '../../services/axios';
+import '../../styles/components/createvideo.scss'
 
 const CreateVideo = () => {
   const { register, handleSubmit, setError } = useForm();

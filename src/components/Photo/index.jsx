@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { axiosInstance } from '../../services/axios';
-import styles from './Photo.module.css';
 import { useNavigate } from 'react-router-dom';
+import '../../styles/components/photo.scss'
 
 export default function Photo({ id, url, title, setMove, move }) {
   const [error, setError] = useState();
@@ -27,11 +27,11 @@ export default function Photo({ id, url, title, setMove, move }) {
   return (
     <div
       key={id}
-      className={styles.photo_card}
+      className="photo_card"
       onClick={() => handleSelect(id)}
     >
-      <img className={styles.photo_img} src={url} />
-      <h1 className={styles.photo_title}>{title}</h1>
+      <img className="photo_img" src={url} />
+      <h1 className="photo_title">{title}</h1>
       {isSuperuser ? (
         <button
           onClick={(event) => {

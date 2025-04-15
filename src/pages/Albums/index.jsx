@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../services/axios';
 import Photo from '../../components/Photo';
 import Video from '../../components/Video';
-import styles from './Albums.module.css';
+import '../../styles/pages/albums.scss';
 
 export default function Albums() {
   const [error, setError] = useState(null);
@@ -34,26 +34,26 @@ export default function Albums() {
   }
 
   return (
-    <div className={styles.album_container}>
-      <h1 className={styles.album_header}>Post Collection</h1>
-      <div className={styles.album_cards}>
+    <div className="album_container">
+      <h1 className="album_header">Post Collection</h1>
+      <div className="album_cards">
         {res.length > 0
           ? res.map((item) => (
-              <div
-                key={item._id}
-                className={styles.album_card}
-                data-album-id={item._id}
-                onClick={openAlbum}
-              >
-                <h1 className={styles.album_title}>{item.title}</h1>
-                <p className={styles.album_year}>{item.year}</p>
-              </div>
-            ))
+            <div
+              key={item._id}
+              className="album_card"
+              data-album-id={item._id}
+              onClick={openAlbum}
+            >
+              <h1 className="album_title">{item.title}</h1>
+              <p className="album_year">{item.year}</p>
+            </div>
+          ))
           : 'Загрузка...'}
       </div>
       {target && target != 'Альбом пуст' ? (
-        <div className={styles.container}>
-          <div className={styles.photo_cards}>
+        <div className="container">
+          <div className="photo_cards">
             {target.photos.map((item) => (
               <Photo
                 key={item.id}
@@ -63,7 +63,7 @@ export default function Albums() {
               />
             ))}
           </div>
-          <div className={styles.video_cards}>
+          <div className="video_cards">
             {target.videos.map((item) => (
               <Video
                 key={item.id}

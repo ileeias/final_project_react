@@ -1,0 +1,32 @@
+.album_container {
+    .album_header {
+        font-size: 30px;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 20px;
+
+        .album_cards {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container {
+            margin-top: 20px;
+
+            .video_cards {
+                display: flex;
+                justify-content: start;
+                flex-wrap: wrap;
+                padding: 20px 50px;
+            }
+
+            .photo_cards {
+                display: flex;
+                justify-content: start;
+                flex-wrap: wrap;
+                padding: 20px 50px;
+            }
+        }
+    }
+}

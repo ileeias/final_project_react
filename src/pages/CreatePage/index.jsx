@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import CreatePhoto from '../../components/CreatePhoto';
 import CreateVideo from '../../components/CreateVideo';
 import CreateAlbum from '../../components/CreateAlbum';
+import '../../styles/pages/createpage.scss'
 
 const CreatePage = () => {
   const [isSuperUser, setIsSuperUser] = useState(false);

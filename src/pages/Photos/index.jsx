@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../services/axios';
-import styles from './Photos.module.css';
+import '../../styles/pages/photos.scss';
 import Photo from '../../components/Photo';
 
 export default function Photos() {
@@ -30,20 +30,20 @@ export default function Photos() {
   if (error) return <div>Ошибка: {error}</div>;
 
   return (
-    <div className={styles.photo_container}>
-      <h1 className={styles.photo_header}>Photo Collection</h1>
-      <div className={styles.photos_list}>
+    <div className="photo_container">
+      <h1 className="photo_header">Photo Collection</h1>
+      <div className="photos_list">
         {res.length > 0
           ? res.map((item) => (
-              <Photo
-                key={item._id}
-                id={item._id}
-                url={item.url}
-                title={item.title}
-                setMove={setMove}
-                move={move}
-              />
-            ))
+            <Photo
+              key={item._id}
+              id={item._id}
+              url={item.url}
+              title={item.title}
+              setMove={setMove}
+              move={move}
+            />
+          ))
           : 'Загрузка...'}
       </div>
     </div>

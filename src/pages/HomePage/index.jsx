@@ -21,11 +21,11 @@ export default function HomePage() {
   return (
     <div className="home_container">
       <h1 className="home_header">Welcome to our web project!</h1>
-      <h2 className="home_header">Register to see more interesting things!</h2>
+      <h1 className="home_header">Register to see more interesting things!</h1>
       <div className="home_cards">
         {res.length > 0 ? (
           res.map((item) => (
-            <Photo key={item.id} id={item.id} url={item.url} title={item.title} />
+            <Photo key={item._id} id={item._id} url={item.url} title={item.title} />
           ))
         ) : (
           'Загрузка...'

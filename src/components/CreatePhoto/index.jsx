@@ -32,36 +32,40 @@ const CreatePhoto = () => {
   };
 
   return (
-    <div>
+    <div className="createphoto_container">
       {/* Форма для добавления фото */}
-      <form onSubmit={handleSubmit(onSubmitPhoto, onError)}>
-        <div>
+      <form onSubmit={handleSubmit(onSubmitPhoto, onError)} className="createphoto_form">
+        <div className="createphoto_inputs">
           <input
             type="text"
             {...register('title', { required: true })}
             placeholder="Название"
+            className="createphoto_input"
           />
           <input
             type="text"
             {...register('url', { required: true })}
             placeholder="URL фото"
+            className="createphoto_input"
           />
           <input
             type="text"
             {...register('description', { required: true })}
             placeholder="Описание"
+            className="createphoto_input"
           />
           <input
             type="text"
             {...register('album', { required: true })}
             placeholder="Альбом"
+            className="createphoto_input"
           />
-          <label>
-            <input type="checkbox" {...register('isPublic')} />
+          <label className="createphoto_label">
+            <input type="checkbox" {...register('isPublic')} className="createphoto_checkbox" />
             Сделать фото публичным
           </label>
         </div>
-        <button type="submit">
+        <button type="submit" className="createphoto_button">
           Создать
         </button>
       </form>

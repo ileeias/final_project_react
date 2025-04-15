@@ -1,0 +1,27 @@
+.createalbum_container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .createalbum_form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px 0px;
+        box-shadow: 1px 1px 1px 1px;
+        padding: 10px;
+
+        .createalbum_inputs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px 0px;
+
+            .createalbum_input {
+                display: block;
+                width: 200px;
+                height: 30px;
+            }
+        }
+    }
+}

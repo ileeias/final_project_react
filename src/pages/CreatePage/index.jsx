@@ -26,24 +26,34 @@ const CreatePage = () => {
 
 
   return (
-    <div>
+    <div className="createpage_container">
       {/* Встречающее меню для кодового слова */}
-      <h1>Create Page (Imasuperuser)</h1>
-      <form onSubmit={handleAccess}>
+      <h1 className="createpage_title">Create Page (Imasuperuser)</h1>
+      <form onSubmit={handleAccess} className="createpage_form">
         <input
           type="text"
           placeholder="Enter key"
           value={inputValue}
           onChange={handleInputChange}
+          className="createpage_input"
         />
-        <button type="submit">Submit</button>
+        <button type="submit" className="createpage_button">Submit</button>
       </form>
       {isSuperUser && (
-        <>
-          <CreatePhoto />
-          <CreateVideo />
-          <CreateAlbum />
-        </>
+        <div className="creating_section">
+          <div>
+            <h1>Photo</h1>
+            <CreatePhoto />
+          </div>
+          <div>
+            <h1>Video</h1>
+            <CreateVideo />
+          </div>
+          <div>
+            <h1>Album</h1>
+            <CreateAlbum />
+          </div>
+        </div>
       )}
     </div>
   );

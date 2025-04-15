@@ -1,32 +1,87 @@
 .album_container {
+
     .album_header {
         font-size: 30px;
         font-weight: 700;
         text-align: center;
         margin-top: 20px;
+    }
 
-        .album_cards {
-            padding: 20px 50px;
+    .album_cards {
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin-top: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+
+        .album_card {
+            width: 300px;
+            height: 200px;
+            background-color: rebeccapurple;
             display: flex;
-            justify-content: space-between;
-        }
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border-radius: 10px;
 
-        .container {
-            margin-top: 20px;
-
-            .video_cards {
-                display: flex;
-                justify-content: start;
-                flex-wrap: wrap;
-                padding: 20px 50px;
+            .album_title {
+                font-size: 20px;
+                font-weight: 600;
+                text-align: center;
             }
 
-            .photo_cards {
-                display: flex;
-                justify-content: start;
-                flex-wrap: wrap;
-                padding: 20px 50px;
+            .album_year {
+                font-size: 20px;
+                text-align: center;
             }
         }
+    }
+
+    .container {
+        background-color: white;
+        display: block;
+
+        .video_cardse {
+            display: flex;
+            padding: 20px 50px;
+            flex-wrap: wrap;
+            gap: 50px;
+
+            .video_carde {
+                border-radius: 10px;
+                display: block;
+            }
+        }
+
+        .photo_cardss {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px 50px;
+            gap: 50px;
+
+            .photo_cardd {
+                display: block;
+                width: 300px;
+            }
+        }
+    }
+}
+
+.cancel_icon {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    cursor: pointer;
+    font-size: 2rem;
+    color: red;
+    background-color: white;
+
+    .cancel_icon:hover {
+        background-color: white;
+
     }
 }

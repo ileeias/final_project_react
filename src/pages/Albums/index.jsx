@@ -3,6 +3,8 @@ import { axiosInstance } from '../../services/axios';
 import Photo from '../../components/Photo';
 import Video from '../../components/Video';
 import '../../styles/pages/albums.scss';
+import { MdCancel } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 export default function Albums() {
   const [error, setError] = useState(null);
@@ -13,6 +15,7 @@ export default function Albums() {
       try {
         const response = await axiosInstance.get('/album');
         setRes(response.data);
+        console.log(response.data)
       } catch (error) {
         console.log('Error', error.response.request.response);
         setError(error.response.request.response);
@@ -35,7 +38,7 @@ export default function Albums() {
 
   return (
     <div className="album_container">
-      <h1 className="album_header">Post Collection</h1>
+      <h1 className="album_header">Album Categories</h1>
       <div className="album_cards">
         {res.length > 0
           ? res.map((item) => (
@@ -45,7 +48,7 @@ export default function Albums() {
               data-album-id={item._id}
               onClick={openAlbum}
             >
-              <h1 className="album_title">{item.title}</h1>
+              <h1 className="album_title">{item.title}:</h1>
               <p className="album_year">{item.year}</p>
             </div>
           ))
@@ -53,23 +56,30 @@ export default function Albums() {
       </div>
       {target && target != 'Альбом пуст' ? (
         <div className="container">
-          <div className="photo_cards">
+          <div onClick={() => setTarget('')} className="cancel_icon">
+            <MdCancel />
+          </div>
+          <div className="photo_cardss">
+            <p>Photos:</p>
             {target.photos.map((item) => (
               <Photo
-                key={item.id}
-                id={item.id}
+                key={item._id}
+                id={item._id}
                 url={item.url}
                 title={item.title}
+                className="photo_cardd"
               />
             ))}
           </div>
-          <div className="video_cards">
+          <div className="video_cardse">
+            <p>Videos:</p>
             {target.videos.map((item) => (
               <Video
-                key={item.id}
-                id={item.id}
+                key={item._id}
+                id={item._id}
                 url={item.url}
                 title={item.title}
+                className="video_carde"
               />
             ))}
           </div>

@@ -16,8 +16,10 @@ const CreatePage = () => {
     event.preventDefault();
     if (inputValue === 'Imasuperuser') {
       setIsSuperUser(true);
+      localStorage.setItem('user', isSuperUser);
     } else {
       setIsSuperUser(false);
+      localStorage.removeItem('user')
     }
   };
 

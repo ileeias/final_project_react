@@ -1,0 +1,17 @@
+.photo_container {
+  margin-top: 20px;
+}
+
+.photo_header {
+  font-size: 30px;
+  text-align: center;
+  font-weight: 700;
+}
+
+.photos_list {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}

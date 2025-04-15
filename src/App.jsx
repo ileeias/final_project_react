@@ -4,27 +4,35 @@
 
 // В проекте используется модульная система стилей для каждого компонента и основных страниц.
 
-import { Routes, Route, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, Navigate, useNavigate, redirect } from 'react-router-dom';
 import './assets/css/style.css';
 import HomePage from './pages/HomePage';
 import Header from './components/Header';
 import { useState, useEffect } from 'react';
 import Registration from './components/Registration';
 import Login from './components/Login';
-import Photo from './pages/Photo';
+import Photos from './pages/Photos';
+import Videos from './pages/Videos';
 import CreatePage from './pages/CreatePage';
+import Albums from './pages/Albums';
+import NotFound from './pages/NotFound';
+import ObjectDetails from './pages/ObjectDetails';
 
 function App() {
   const [modal, setModal] = useState(null);
-  const [authenticated, setAuthenticated] = useState(localStorage.getItem('saveSession'))
+  const [authenticated, setAuthenticated] = useState(
+    localStorage.getItem('saveSession')
+  );
 
   // Проверка авторизации
   useEffect(() => {
     if (localStorage.getItem('token')) {
-      setAuthenticated(true)
-      localStorage.setItem("saveSession", authenticated)
-    } else {setAuthenticated(false)}
-  })
+      setAuthenticated(true);
+      localStorage.setItem('saveSession', authenticated);
+    } else {
+      setAuthenticated(false);
+    }
+  });
 
   //Управление модальным окном
   const changeModalRegistration = () => {
@@ -39,7 +47,12 @@ function App() {
   const changeModalClose = () => {
     setModal(null);
   };
-
+  // удаление токена или logout
+  const removeToken = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('saveSession');
+    setAuthenticated(false)
+  };
   return (
     <>
       {/* Поле навигации */}
@@ -47,6 +60,7 @@ function App() {
         changeModalLogin={changeModalLogin}
         changeModalRegistration={changeModalRegistration}
         authenticated={authenticated}
+        removeToken={removeToken}
       />
 
       {/* Модальное окно */}
@@ -54,9 +68,13 @@ function App() {
 
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/photo" element={<Photo />} />
+        <Route path="/photos" element={<Photos />} />
+        <Route path="/videos" element={<Videos />} />
         <Route path="/create" element={<CreatePage />} />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="/albums" element={<Albums />} />
+        <Route path="/notfound" element={<NotFound />} />
+        <Route path="/object/:media/:id" element={<ObjectDetails />} />
+        <Route path="*" element={<Navigate to="/notfound" />} />
       </Routes>
     </>
   );

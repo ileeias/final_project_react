@@ -63,13 +63,6 @@ export default function Registration({ changeModalClose, changeModalLogin }) {
                     {...register('password', { required: true })}
                   />
                 </div>
-                {/* <div className={styles.group}>
-                  <label htmlFor="name">Повторите пароль</label>
-                  <input
-                    type="password"
-                    {...register('repeat_password', { required: true })}
-                  />
-                </div> */}
                 {errors ? <p className={styles.error}>{errors}</p> : <p></p>}
                 <button type="submit">Registration</button>
               </form>

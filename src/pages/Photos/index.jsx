@@ -1,9 +1,10 @@
-import styles from "./Photo.module.css";
 import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../services/axios';
-import styles from './Photo.module.css';
+import styles from './Photos.module.css';
+import Photo from '../../components/Photo';
 
-export default function Photo() {
+export default function Photos() {
+  const [move, setMove] = useState(false);
   const [res, setRes] = useState([]);
   const [error, setError] = useState(null);
 
@@ -18,31 +19,32 @@ export default function Photo() {
           },
         });
         setRes(response.data);
-        console.log(response.data)
       } catch (error) {
         console.log('Error', error.response.request.response);
         setError(error.response.request.response);
       }
     }
     getAllPhotos();
-  }, []);
+  }, [move]);
 
   if (error) return <div>Ошибка: {error}</div>;
 
   return (
     <div className={styles.photo_container}>
       <h1 className={styles.photo_header}>Photo Collection</h1>
-      <div className={styles.photo_cards}>
-        {res.length > 0 ? (
-          res.map((item) => (
-            <div key={item.id} className={styles.photo_card}>
-              <img className={styles.photo_img} src={item.url} />
-              <h1 className={styles.photo_title}>{item.title}</h1>
-            </div>
-          ))
-        ) : (
-          'Загрузка...'
-        )}
+      <div className={styles.photos_list}>
+        {res.length > 0
+          ? res.map((item) => (
+              <Photo
+                key={item._id}
+                id={item._id}
+                url={item.url}
+                title={item.title}
+                setMove={setMove}
+                move={move}
+              />
+            ))
+          : 'Загрузка...'}
       </div>
     </div>
   );

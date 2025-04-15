@@ -1,0 +1,29 @@
+.video_container {
+    margin-top: 20px;
+}
+
+.video_cards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 20px 50px;
+}
+
+.video_header {
+    font-size: 30px;
+    text-align: center;
+    font-weight: 700;
+}
+
+.video_img {
+    width: 220px;
+    height: 220px;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+.video_title {
+    text-align: center;
+    margin-top: 5px;
+    font-weight: 500;
+}

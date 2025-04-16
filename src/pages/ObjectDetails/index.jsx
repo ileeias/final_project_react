@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { axiosInstance } from '../../services/axios';
-import styles from './ObjectDetails.module.css';
+import '../../styles/pages/objectdetails.scss';
 
 export default function ObjectDetails() {
   const [album, setAlbum] = useState();
@@ -29,15 +29,15 @@ export default function ObjectDetails() {
   }, [media, id]);
 
   return (
-    <div className={styles.photo_card}>
+    <div className="photo_carde">
       {error ? (
-        <h1>{error}</h1> 
+        <h1 >{error}</h1>
       ) : (
-        <>
-          <img className={styles.photo_img} src={res.url} alt={res.title}/>
-          <h1 className={styles.photo_title}>{res.title}</h1>
-          <h2 className={styles.photo_description}>{res.description}</h2>
-        </>
+        <div className="card_details">
+          <img className="photo_img" src={res.url} alt={res.title} />
+          <h1 className="photo_title">{res.title}</h1>
+          <h2 className="photo_description">{res.description}</h2>
+        </div>
       )}
     </div>
   );

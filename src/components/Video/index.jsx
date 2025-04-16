@@ -1,7 +1,8 @@
 import ReactPlayer from 'react-player';
-import styles from './Video.module.css';
 import { useState } from 'react';
 import { axiosInstance } from '../../services/axios';
+import '../../styles/components/video.scss'
+import { FaTrashAlt } from "react-icons/fa";
 
 export default function Video({ id, url, title, setMove, move }) {
   const [error, setError] = useState();
@@ -19,19 +20,18 @@ export default function Video({ id, url, title, setMove, move }) {
   };
 
   return (
-    <div key={id} className={styles.video_card}>
-      <ReactPlayer url={url} light={true} width={360} height={360} />
-      <h1 className={styles.video_title}>{title}</h1>
-      {isSuperuser ? (
-        <button
-          onClick={(event) => {
-            event.stopPropagation();
-            handleDelete(id);
-          }}
-        >
-          Delete this
-        </button>
-      ) : null}
+    <div key={id} className="video_card">
+      <ReactPlayer url={url} light={true} width={360} height={260} />
+      <div className="video_text">
+        <h1 className="video_title">{title}</h1>
+        {isSuperuser ? (
+          <FaTrashAlt
+            onClick={(event) => {
+              event.stopPropagation();
+              handleDelete(id);
+            }} />
+        ) : null}
+      </div>
     </div>
   );
 }

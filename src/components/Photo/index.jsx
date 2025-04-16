@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { axiosInstance } from '../../services/axios';
-import styles from './Photo.module.css';
 import { useNavigate } from 'react-router-dom';
+import '../../styles/components/photo.scss'
+import { FaTrashAlt } from "react-icons/fa";
 
 export default function Photo({ id, url, title, setMove, move }) {
   const [error, setError] = useState();
@@ -27,20 +28,20 @@ export default function Photo({ id, url, title, setMove, move }) {
   return (
     <div
       key={id}
-      className={styles.photo_card}
+      className="photo_cards"
       onClick={() => handleSelect(id)}
     >
-      <img className={styles.photo_img} src={url} />
-      <h1 className={styles.photo_title}>{title}</h1>
+      <img className="photo_img" src={url} />
+      <p className="photo_title">{title}</p>
       {isSuperuser ? (
-        <button
-          onClick={(event) => {
-            event.stopPropagation();
-            handleDelete(id);
-          }}
-        >
-          Delete this
-        </button>
+        <div className="photo_del_button">
+          <FaTrashAlt
+            onClick={(event) => {
+              event.stopPropagation();
+              handleDelete(id);
+            }}
+          />
+        </div>
       ) : null}
     </div>
   );

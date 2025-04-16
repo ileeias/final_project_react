@@ -1,0 +1,35 @@
+@mixin directChange () {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.createpage_container {
+    @include directChange();
+    align-items: center;
+    margin-top: 30px;
+
+    .createpage_title {
+        font-size: 30px;
+        font-weight: 500;
+    }
+
+    .createpage_form {
+        margin-top: 20px;
+
+        .createpage_input {
+            height: 30px;
+            width: 300px;
+
+        }
+
+        .createpage_button {}
+    }
+
+    .creating_section {
+        margin-top: 50px;
+        gap: 20px 0px;
+        display: flex;
+        gap: 100px;
+    }
+}

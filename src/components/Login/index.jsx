@@ -1,4 +1,4 @@
-import styles from './Login.module.css';
+import '../../styles/components/login.scss';
 import { useForm } from 'react-hook-form';
 import { axiosInstance } from '../../services/axios';
 import { useState } from 'react';
@@ -21,34 +21,34 @@ export default function Login({ changeModalClose }) {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.modal}>
-        <div className={styles.mcontainer}>
-          <div className={styles.header}>
+    <div className="container">
+      <div className="modal">
+        <div className="mcontainer">
+          <div className="header">
             <h2>Log in</h2>
-            <span className={styles.close} onClick={changeModalClose}>
+            <span className="close" onClick={changeModalClose}>
               ✕
             </span>
           </div>
-          <div className={styles.body}>
-            <div className={styles.formcontainer}>
+          <div className="body">
+            <div className="formcontainer">
               <form onSubmit={handleSubmit(onSubmit, onError)}>
-                <div className={styles.group}>
+                <div className="group">
                   <label htmlFor="name">Email</label>
                   <input
                     type="text"
                     {...register('email', { required: true })}
                   />
                 </div>
-                <div className={styles.group}>
+                <div className="group">
                   <label htmlFor="name">Пароль</label>
                   <input
                     type="text"
                     {...register('password', { required: true })}
                   />
                 </div>
-                <div className={styles.actions}>
-                  {errors ? <p className={styles.error}>{errors}</p> : <p></p>}
+                <div className="actions">
+                  {errors ? <p className="error">{errors}</p> : <p></p>}
                   <button type="submit">SUBMIT</button>
                 </div>
               </form>

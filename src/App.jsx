@@ -4,7 +4,13 @@
 
 // В проекте используется модульная система стилей для каждого компонента и основных страниц.
 
-import { Routes, Route, Navigate, useNavigate, redirect } from 'react-router-dom';
+import {
+  Routes,
+  Route,
+  Navigate,
+  useNavigate,
+  redirect,
+} from 'react-router-dom';
 import './assets/css/style.css';
 import HomePage from './pages/HomePage';
 import Header from './components/Header';
@@ -17,22 +23,25 @@ import CreatePage from './pages/CreatePage';
 import Albums from './pages/Albums';
 import NotFound from './pages/NotFound';
 import ObjectDetails from './pages/ObjectDetails';
+import { useTheme } from './ThemeContext';
 
 function App() {
   const [modal, setModal] = useState(null);
   const [authenticated, setAuthenticated] = useState(
     localStorage.getItem('saveSession')
   );
+  const { theme, toggleTheme } = useTheme();
 
   // Проверка авторизации
   useEffect(() => {
+    document.body.className = theme;
     if (localStorage.getItem('token')) {
       setAuthenticated(true);
       localStorage.setItem('saveSession', authenticated);
     } else {
       setAuthenticated(false);
     }
-  });
+  }, [theme, modal]);
 
   //Управление модальным окном
   const changeModalRegistration = () => {
@@ -51,7 +60,7 @@ function App() {
   const removeToken = () => {
     localStorage.removeItem('token');
     localStorage.removeItem('saveSession');
-    setAuthenticated(false)
+    setAuthenticated(false);
   };
   return (
     <>
@@ -61,7 +70,10 @@ function App() {
         changeModalRegistration={changeModalRegistration}
         authenticated={authenticated}
         removeToken={removeToken}
+        toggleTheme={toggleTheme}
+        theme={theme}
       />
+      
 
       {/* Модальное окно */}
       {modal}

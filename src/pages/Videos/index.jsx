@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { axiosInstance } from '../../services/axios';
-import styles from './Videos.module.css';
+import '../../styles/pages/videos.scss';
 import Video from '../../components/Video';
 
 export default function Videos() {
@@ -30,20 +30,20 @@ export default function Videos() {
   if (error) return <div>Ошибка: {error}</div>;
 
   return (
-    <div className={styles.video_container}>
-      <h1 className={styles.video_header}>Video Collection</h1>
-      <div className={styles.video_cards}>
+    <div className="video_container">
+      <h1 className="video_header">Video Collection</h1>
+      <div className="video_cards">
         {res.length > 0
           ? res.map((item) => (
-              <Video
-                key={item._id}
-                id={item._id}
-                url={item.url}
-                title={item.title}
-                setMove={setMove}
-                move={move}
-              />
-            ))
+            <Video
+              key={item._id}
+              id={item._id}
+              url={item.url}
+              title={item.title}
+              setMove={setMove}
+              move={move}
+            />
+          ))
           : 'Загрузка...'}
       </div>
     </div>

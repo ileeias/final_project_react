@@ -1,3 +1,28 @@
 @import "./reset.css";
 @import "./variables.css";
 
+body.light {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+body.dark {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.setting {
+    position: absolute;
+    width: 300px;
+    height: 50px;
+    background-color:blueviolet;
+    right: 0;
+    top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.theme_button {
+    background: transparent;
+    height: 80%;
+}
